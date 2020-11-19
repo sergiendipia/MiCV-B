@@ -1,9 +1,9 @@
-package dad.template.javafx;
+package dad.javafx.micv;
 
 public class Main {
 
 	public static void main(String[] args) {
-		TemplateApp.main(args);
+		App.main(args);
 	}
 
 }

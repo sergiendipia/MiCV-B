@@ -1,22 +1,22 @@
-package dad.template.javafx;
+package dad.javafx.micv;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TemplateApp extends Application {
+public class App extends Application {
 	
-	private TemplateController controller;
+	private MainController controller;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		controller = new TemplateController();
+		controller = new MainController();
 		
-		Scene escena = new Scene(controller.getRoot());
+		Scene escena = new Scene(controller.getView());
 		
 		primaryStage.setScene(escena);
-		primaryStage.setTitle("JavaFX Template Project Demo");
+		primaryStage.setTitle("MiCV");
 		primaryStage.show();
 	}
 
