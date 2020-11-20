@@ -35,9 +35,11 @@ public class CV {
                 .setPrettyPrinting()
                 .create();
 		
-		String json = gson.toJson(cv);
+		String json = gson.toJson(cv); // convertir modelo de datos a json (marshalling)
 
 		System.out.println(json);
+		
+		cv = gson.fromJson(json, CV.class); // convertir json a modelo de datos (unmarshalling) 
 		
 	}
 	
