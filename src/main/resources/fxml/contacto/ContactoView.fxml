@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<SplitPane fx:id="view" dividerPositions="0.5, 0.5" minHeight="100.0" minWidth="600.0" orientation="VERTICAL" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <items>
+      <TitledPane animated="false" collapsible="false" minHeight="-Infinity" text="Teléfonos">
+         <content>
+            <HBox>
+               <children>
+                  <TableView minHeight="-Infinity" prefHeight="0.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Número" />
+                      <TableColumn prefWidth="75.0" text="Tipo" />
+                    </columns>
+                  </TableView>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Button fx:id="anadirTelefonoButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
+                        <Button fx:id="elimianrTelefonoButton" maxWidth="-Infinity" mnemonicParsing="false" text="Eliminar" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" text="Direcciones de correo">
+         <content>
+            <HBox>
+               <children>
+                  <TableView prefHeight="0.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="E-mail" />
+                    </columns>
+                  </TableView>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Button fx:id="anadirEmailButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
+                        <Button fx:id="eliminarEmailButton" maxWidth="-Infinity" mnemonicParsing="false" text="Eliminar" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" collapsible="false" text="Webs">
+         <content>
+            <HBox>
+               <children>
+                  <TableView prefHeight="0.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TableColumn prefWidth="257.0" text="URL" />
+                    </columns>
+                  </TableView>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Button fx:id="anadirWebButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
+                        <Button fx:id="eliminarWebButton" maxWidth="-Infinity" mnemonicParsing="false" text="Eliminar" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </TitledPane>
+   </items>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</SplitPane>

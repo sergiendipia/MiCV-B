@@ -4,13 +4,22 @@ import org.hildan.fxgson.FxGson;
 
 import com.google.gson.Gson;
 
+import dad.javafx.micv.contacto.model.Contacto;
+import dad.javafx.micv.experiencias.model.Experiencia;
+import dad.javafx.micv.formacion.model.Titulo;
+import dad.javafx.micv.habilidades.model.Conocimiento;
+import dad.javafx.micv.personal.model.Nacionalidad;
+import dad.javafx.micv.personal.model.Personal;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 public class CV {
 
 	private ObjectProperty<Personal> personal = new SimpleObjectProperty<Personal>(new Personal());
-
+	private ObjectProperty<Contacto> contacto = new SimpleObjectProperty<Contacto>(new Contacto());
+	private ObjectProperty<Titulo> formacion = new SimpleObjectProperty<Titulo>(new Titulo());
+	private ObjectProperty<Experiencia> experiencia = new SimpleObjectProperty<Experiencia>(new Experiencia());
+	private ObjectProperty<Conocimiento> conocimiento = new SimpleObjectProperty<Conocimiento>(new Conocimiento());
 	public final ObjectProperty<Personal> personalProperty() {
 		return this.personal;
 	}

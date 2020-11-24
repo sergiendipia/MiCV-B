@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dad.javafx.micv.model.Nacionalidad;
-import dad.javafx.micv.model.Personal;
+import dad.javafx.micv.personal.model.Nacionalidad;
+import dad.javafx.micv.personal.model.Personal;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
