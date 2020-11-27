@@ -1,14 +1,9 @@
 package dad.javafx.micv.model;
 
-import org.hildan.fxgson.FxGson;
-
-import com.google.gson.Gson;
-
 import dad.javafx.micv.conocimientos.model.Conocimiento;
 import dad.javafx.micv.contacto.model.Contacto;
 import dad.javafx.micv.experiencia.model.Experiencia;
 import dad.javafx.micv.formacion.model.Titulo;
-import dad.javafx.micv.personal.model.Nacionalidad;
 import dad.javafx.micv.personal.model.Personal;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -20,6 +15,7 @@ public class CV {
 	private ObjectProperty<Titulo> formacion = new SimpleObjectProperty<Titulo>(new Titulo());
 	private ObjectProperty<Experiencia> experiencia = new SimpleObjectProperty<Experiencia>(new Experiencia());
 	private ObjectProperty<Conocimiento> conocimiento = new SimpleObjectProperty<Conocimiento>(new Conocimiento());
+
 	public final ObjectProperty<Personal> personalProperty() {
 		return this.personal;
 	}
@@ -32,27 +28,52 @@ public class CV {
 		this.personalProperty().set(personal);
 	}
 
-	public static void main(String[] args) {
-		
-		CV cv = new CV();
-		cv.getPersonal().setNombre("Chuck");
-		cv.getPersonal().setApellidos("Norris");
-		cv.getPersonal().getNacionalidades().add(new Nacionalidad("estadounidense"));
-		
-		Gson gson = 
-			FxGson.fullBuilder()
-                .setPrettyPrinting()
-                .create();
-		
-		String json = gson.toJson(cv); // convertir modelo de datos a json (marshalling)
-
-		System.out.println(json);
-		
-		cv = gson.fromJson(json, CV.class); // convertir json a modelo de datos (unmarshalling) 
-		
+	public final ObjectProperty<Contacto> contactoProperty() {
+		return this.contacto;
 	}
-	
+
+	public final Contacto getContacto() {
+		return this.contactoProperty().get();
+	}
+
+	public final void setContacto(final Contacto contacto) {
+		this.contactoProperty().set(contacto);
+	}
+
+	public final ObjectProperty<Titulo> formacionProperty() {
+		return this.formacion;
+	}
+
+	public final Titulo getFormacion() {
+		return this.formacionProperty().get();
+	}
+
+	public final void setFormacion(final Titulo formacion) {
+		this.formacionProperty().set(formacion);
+	}
+
+	public final ObjectProperty<Experiencia> experienciaProperty() {
+		return this.experiencia;
+	}
+
+	public final Experiencia getExperiencia() {
+		return this.experienciaProperty().get();
+	}
+
+	public final void setExperiencia(final Experiencia experiencia) {
+		this.experienciaProperty().set(experiencia);
+	}
+
+	public final ObjectProperty<Conocimiento> conocimientoProperty() {
+		return this.conocimiento;
+	}
+
+	public final Conocimiento getConocimiento() {
+		return this.conocimientoProperty().get();
+	}
+
+	public final void setConocimiento(final Conocimiento conocimiento) {
+		this.conocimientoProperty().set(conocimiento);
+	}
+
 }
-
-
-
