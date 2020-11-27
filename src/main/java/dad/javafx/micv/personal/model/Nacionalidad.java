@@ -10,6 +10,12 @@ public class Nacionalidad {
 	public Nacionalidad() {
 	}
 
+	
+	@Override
+	public String toString() {
+		return getDenominacion();
+	}
+
 	public Nacionalidad(String denominacion) {
 		super();
 		this.denominacion.set(denominacion);

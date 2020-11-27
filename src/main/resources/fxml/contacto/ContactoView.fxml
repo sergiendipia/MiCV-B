@@ -15,16 +15,16 @@
          <content>
             <HBox>
                <children>
-                  <TableView minHeight="-Infinity" prefHeight="0.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="telefonosTable" minHeight="-Infinity" prefHeight="0.0" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Número" />
-                      <TableColumn prefWidth="75.0" text="Tipo" />
+                      <TableColumn fx:id="numeroColumn" prefWidth="75.0" text="Número" />
+                      <TableColumn fx:id="tipoColumn" prefWidth="75.0" text="Tipo" />
                     </columns>
                   </TableView>
                   <VBox spacing="5.0">
                      <children>
-                        <Button fx:id="anadirTelefonoButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
-                        <Button fx:id="elimianrTelefonoButton" maxWidth="-Infinity" mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="anadirTelefonoButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirTelefonoAction" text="Añadir" />
+                        <Button fx:id="eliminarTelefonoButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onEliminarTelefonoAction" text="Eliminar" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -38,15 +38,15 @@
          <content>
             <HBox>
                <children>
-                  <TableView prefHeight="0.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="emailTable" prefHeight="0.0" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="E-mail" />
+                      <TableColumn fx:id="emailColumn" prefWidth="75.0" text="E-mail" />
                     </columns>
                   </TableView>
                   <VBox spacing="5.0">
                      <children>
-                        <Button fx:id="anadirEmailButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
-                        <Button fx:id="eliminarEmailButton" maxWidth="-Infinity" mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="anadirEmailButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirEmailAction" text="Añadir" />
+                        <Button fx:id="eliminarEmailButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onEliminarEmailAction" text="Eliminar" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -60,15 +60,15 @@
          <content>
             <HBox>
                <children>
-                  <TableView prefHeight="0.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="webTable" prefHeight="0.0" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn prefWidth="257.0" text="URL" />
+                      <TableColumn fx:id="urlColumn" prefWidth="257.0" text="URL" />
                     </columns>
                   </TableView>
                   <VBox spacing="5.0">
                      <children>
-                        <Button fx:id="anadirWebButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
-                        <Button fx:id="eliminarWebButton" maxWidth="-Infinity" mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="anadirWebButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirWebAction" text="Añadir" />
+                        <Button fx:id="eliminarWebButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onEliminarWebAction" text="Eliminar" />
                      </children>
                      <HBox.margin>
                         <Insets />

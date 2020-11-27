@@ -11,6 +11,10 @@ import org.hildan.fxgson.FxGson;
 
 import com.google.gson.Gson;
 
+import dad.javafx.micv.conocimientos.ConocimientosController;
+import dad.javafx.micv.contacto.ContactoController;
+import dad.javafx.micv.experiencia.ExperienciaController;
+import dad.javafx.micv.formacion.FormacionController;
 import dad.javafx.micv.model.CV;
 import dad.javafx.micv.personal.PersonalController;
 import dad.javafx.micv.utils.JSONUtils;
@@ -31,7 +35,10 @@ public class MainController implements Initializable {
 	// controllers
 	
 	private PersonalController personalController = new PersonalController();
-	
+	private ContactoController contactoController = new ContactoController();
+	private FormacionController formacionController = new FormacionController();
+	private ExperienciaController experienciaController = new ExperienciaController();
+	private ConocimientosController conocimientosController = new ConocimientosController();
 	// model
 	
 	private ObjectProperty<CV> cv = new SimpleObjectProperty<>();
@@ -70,7 +77,10 @@ public class MainController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 		personalTab.setContent(personalController.getView());
-		
+		contactoTab.setContent(contactoController.getView());
+		formacionTab.setContent(formacionController.getView());
+		experienciaTab.setContent(experienciaController.getView());
+		conocimientosTab.setContent(conocimientosController.getView());
 		cv.addListener((o, ov, nv) -> onCVChanged(o, ov, nv));
 		
 		cv.set(new CV());

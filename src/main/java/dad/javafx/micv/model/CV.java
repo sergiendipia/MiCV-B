@@ -4,10 +4,10 @@ import org.hildan.fxgson.FxGson;
 
 import com.google.gson.Gson;
 
+import dad.javafx.micv.conocimientos.model.Conocimiento;
 import dad.javafx.micv.contacto.model.Contacto;
-import dad.javafx.micv.experiencias.model.Experiencia;
+import dad.javafx.micv.experiencia.model.Experiencia;
 import dad.javafx.micv.formacion.model.Titulo;
-import dad.javafx.micv.habilidades.model.Conocimiento;
 import dad.javafx.micv.personal.model.Nacionalidad;
 import dad.javafx.micv.personal.model.Personal;
 import javafx.beans.property.ObjectProperty;

@@ -1,4 +1,4 @@
-package dad.javafx.micv.habilidades.model;
+package dad.javafx.micv.conocimientos.model;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;

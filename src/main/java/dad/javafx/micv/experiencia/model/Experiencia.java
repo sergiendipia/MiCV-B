@@ -1,4 +1,4 @@
-package dad.javafx.micv.experiencias.model;
+package dad.javafx.micv.experiencia.model;
 
 import java.time.LocalDate;
 

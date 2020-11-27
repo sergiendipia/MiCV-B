@@ -9,18 +9,18 @@
 
 <HBox fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView prefHeight="400.0" prefWidth="412.0" HBox.hgrow="ALWAYS">
+      <TableView fx:id="formacionTable" prefHeight="400.0" prefWidth="412.0" HBox.hgrow="ALWAYS">
         <columns>
-          <TableColumn prefWidth="75.0" text="Desde" />
-          <TableColumn prefWidth="75.0" text="Hasta" />
-            <TableColumn prefWidth="110.0" text="Denominación" />
-            <TableColumn prefWidth="106.0" text="Organizador" />
+          <TableColumn fx:id="desdeColumn" prefWidth="75.0" text="Desde" />
+          <TableColumn fx:id="hastColumn" prefWidth="75.0" text="Hasta" />
+            <TableColumn fx:id="denominacionColumn" prefWidth="110.0" text="Denominación" />
+            <TableColumn fx:id="organizadorColumn" prefWidth="106.0" text="Organizador" />
         </columns>
       </TableView>
       <VBox alignment="TOP_CENTER" spacing="5.0" HBox.hgrow="NEVER">
          <children>
-            <Button fx:id="anadirButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" VBox.vgrow="NEVER" />
-            <Button fx:id="eliminarButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar" />
+            <Button fx:id="anadirButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirButtonAction" text="Añadir" VBox.vgrow="NEVER" />
+            <Button fx:id="eliminarButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEliminarButtonAction" text="Eliminar" />
          </children>
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

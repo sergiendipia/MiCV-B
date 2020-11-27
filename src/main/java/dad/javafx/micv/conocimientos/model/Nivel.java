@@ -1,4 +1,4 @@
-package dad.javafx.micv.habilidades.model;
+package dad.javafx.micv.conocimientos.model;
 
 public enum Nivel {
 		BASICO(1),
