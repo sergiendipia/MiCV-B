@@ -4,6 +4,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dad.javafx.micv.conocimientos.model.Conocimiento;
+import dad.javafx.micv.contacto.model.Contacto;
+import dad.javafx.micv.formacion.model.Titulo;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +22,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 
 public class ConocimientosController {
+	//model
+	private ListProperty<Conocimiento> habilidades = new SimpleListProperty<Conocimiento>(FXCollections.observableArrayList());
 	@FXML
     private HBox view;
 
@@ -60,8 +71,28 @@ public class ConocimientosController {
     }
 
     @FXML
-    void onEliminarButtonAction(ActionEvent event) {
+    void onEliminarAction(ActionEvent event) {
 
     }
+
+	public final ListProperty<Conocimiento> habilidadesProperty() {
+		return this.habilidades;
+	}
+	
+
+	public final ObservableList<Conocimiento> getHabilidades() {
+		return this.habilidadesProperty().get();
+	}
+	
+
+	public final void setHabilidades(final ObservableList<Conocimiento> habilidades) {
+		this.habilidadesProperty().set(habilidades);
+	}
+	
+
+	
+
+    
+    
 
 }

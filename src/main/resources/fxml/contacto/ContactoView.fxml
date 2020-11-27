@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<SplitPane fx:id="view" dividerPositions="0.5, 0.5" minHeight="100.0" minWidth="600.0" orientation="VERTICAL" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane fx:id="view" dividerPositions="0.30859375, 0.66015625" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <items>
-      <TitledPane animated="false" collapsible="false" minHeight="-Infinity" text="Teléfonos">
+      <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Teléfonos">
          <content>
             <HBox>
                <children>
-                  <TableView fx:id="telefonosTable" minHeight="-Infinity" prefHeight="0.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="telefonosTable" editable="true" minHeight="70.0" HBox.hgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="numeroColumn" prefWidth="75.0" text="Número" />
                       <TableColumn fx:id="tipoColumn" prefWidth="75.0" text="Tipo" />
@@ -33,12 +33,15 @@
                </children>
             </HBox>
          </content>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
       </TitledPane>
-      <TitledPane animated="false" collapsible="false" text="Direcciones de correo">
+      <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Direcciones de correo">
          <content>
             <HBox>
                <children>
-                  <TableView fx:id="emailTable" prefHeight="0.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="emailTable" editable="true" minHeight="70.0" HBox.hgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="emailColumn" prefWidth="75.0" text="E-mail" />
                     </columns>
@@ -55,12 +58,15 @@
                </children>
             </HBox>
          </content>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
       </TitledPane>
-      <TitledPane animated="false" collapsible="false" text="Webs">
+      <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Webs">
          <content>
             <HBox>
                <children>
-                  <TableView fx:id="webTable" prefHeight="0.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="webTable" editable="true" minHeight="70.0" HBox.hgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="urlColumn" prefWidth="257.0" text="URL" />
                     </columns>
@@ -80,6 +86,9 @@
                </children>
             </HBox>
          </content>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
       </TitledPane>
    </items>
    <padding>

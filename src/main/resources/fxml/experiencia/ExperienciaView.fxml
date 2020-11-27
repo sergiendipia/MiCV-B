@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="experienciaTable" prefHeight="400.0" prefWidth="412.0" HBox.hgrow="ALWAYS">
+      <TableView fx:id="ExperienciaTable" prefHeight="400.0" prefWidth="513.0" HBox.hgrow="ALWAYS">
         <columns>
-          <TableColumn fx:id="desdeColumn" prefWidth="75.0" text="Desde" />
-          <TableColumn fx:id="hastaColumn" prefWidth="75.0" text="Hasta" />
-            <TableColumn fx:id="denominacionColumn" prefWidth="110.0" text="Denominación" />
-            <TableColumn fx:id="empleadorColumn" prefWidth="106.0" text="Empleador" />
+          <TableColumn fx:id="desdeColumn" prefWidth="94.0" text="Desde" />
+          <TableColumn fx:id="hastaColumn" prefWidth="56.0" text="Hasta" />
+            <TableColumn fx:id="denominacionColumn" prefWidth="107.0" text="Denominación" />
+            <TableColumn fx:id="empleadorColumn" prefWidth="97.0" text="Empleador" />
         </columns>
       </TableView>
-      <VBox alignment="TOP_CENTER" spacing="5.0" HBox.hgrow="NEVER">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="NEVER">
          <children>
-            <Button fx:id="anadirButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAnadirButtonAction" text="Añadir" VBox.vgrow="NEVER" />
-            <Button fx:id="eliminarButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEliminarButtonAction" text="Eliminar" />
+            <Button fx:id="anadirButon" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAnadirAction" text="Añadir" />
+            <Button fx:id="eliminarButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEliminarAction" text="Eliminar" />
          </children>
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

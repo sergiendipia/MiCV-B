@@ -93,7 +93,11 @@ public class MainController implements Initializable {
     		
     		personalController.personalProperty().unbind(); // desbindeo personalProperty del CV anterior
     		contactoController.contactoProperty().unbind();
-    		// desbindear resto de controllers
+    		formacionController.formacionProperty().unbind();
+    		experienciaController.experienciasProperty().unbind();
+    		conocimientosController.habilidadesProperty().unbind();
+    		
+ 
     		
     	}
 
@@ -101,7 +105,10 @@ public class MainController implements Initializable {
     		
     		personalController.personalProperty().bind(nv.personalProperty()); // bindeo personalProperty del nuevo CV
     		contactoController.contactoProperty().bind(nv.contactoProperty());
-    		// bindear resto de controllers
+    		formacionController.formacionProperty().bind(nv.formacionProperty());
+    		experienciaController.experienciasProperty().bind(nv.experienciasProperty());
+    		conocimientosController.habilidadesProperty().bind(nv.habilidadesProperty());
+
     		
     	}
     	

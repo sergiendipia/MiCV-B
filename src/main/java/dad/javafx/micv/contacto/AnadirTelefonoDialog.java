@@ -43,7 +43,7 @@ public class AnadirTelefonoDialog extends Dialog<Telefono> implements Initializa
 
 		anadirTipoCombo.getItems().addAll(TipoTelefono.values());
 		
-		setTitle("Login Dialog");
+		setTitle("Nuevo teléfono");
 		setHeaderText("Introduzca el nuevo número de teléfono.");
 		
 		getDialogPane().setContent(view);

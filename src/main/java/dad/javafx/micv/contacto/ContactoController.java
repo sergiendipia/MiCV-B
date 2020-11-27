@@ -17,11 +17,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
 
@@ -169,17 +172,54 @@ public class ContactoController implements Initializable {
 
 	@FXML
 	void onEliminarEmailAction(ActionEvent event) {
-		emailTable.getItems().removeAll(emailTable.getSelectionModel().getSelectedItem());
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Eliminar");
+    	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
+    	alert.setContentText("Email: " + emailTable.getSelectionModel().getSelectedItem().getDireccion());
+
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    	    // ... user chose OK
+    		emailTable.getItems().removeAll(emailTable.getSelectionModel().getSelectedItem());
+    	} else {
+    	    // ... user chose CANCEL or closed the dialog
+    	}
+		
 	}
 
 	@FXML
 	void onEliminarTelefonoAction(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Eliminar");
+    	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
+    	alert.setContentText("Teléfono: " + telefonosTable.getSelectionModel().getSelectedItem().getNumero() +
+    			"\nTipo : " + telefonosTable.getSelectionModel().getSelectedItem().getTipo());
 
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    	    // ... user chose OK
+    		telefonosTable.getItems().removeAll(telefonosTable.getSelectionModel().getSelectedItem());
+
+    	} else {
+    	    // ... user chose CANCEL or closed the dialog
+    	}
 	}
 
 	@FXML
 	void onEliminarWebAction(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Eliminar");
+    	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
+    	alert.setContentText("URL: " + webTable.getSelectionModel().getSelectedItem().getUrl());
 
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    	    // ... user chose OK
+    		webTable.getItems().removeAll(webTable.getSelectionModel().getSelectedItem());
+    	} else {
+    	    // ... user chose CANCEL or closed the dialog
+    	}
+		
 	}
 
 	public final ObjectProperty<Contacto> contactoProperty() {
