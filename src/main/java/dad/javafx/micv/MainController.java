@@ -92,6 +92,7 @@ public class MainController implements Initializable {
     	if (ov != null) {
     		
     		personalController.personalProperty().unbind(); // desbindeo personalProperty del CV anterior
+    		contactoController.contactoProperty().unbind();
     		// desbindear resto de controllers
     		
     	}
@@ -99,6 +100,7 @@ public class MainController implements Initializable {
     	if (nv != null) {
     		
     		personalController.personalProperty().bind(nv.personalProperty()); // bindeo personalProperty del nuevo CV
+    		contactoController.contactoProperty().bind(nv.contactoProperty());
     		// bindear resto de controllers
     		
     	}
