@@ -21,6 +21,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -35,7 +36,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.converter.LocalDateStringConverter;
 import javafx.util.converter.LocalDateTimeStringConverter;
 
-public class FormacionController {
+public class FormacionController implements Initializable{
 	//model
 	private ListProperty<Titulo> formacion = new SimpleListProperty<Titulo>(FXCollections.observableArrayList());
 	
@@ -100,12 +101,12 @@ public class FormacionController {
 
 		if (ov != null) {
 			// unbind tabla formacion
-			formacionTable.itemsProperty().unbindBidirectional(ov.formacionProperty());
+			formacionTable.itemsProperty().unbindBidirectional(ov.formacion);
 		}
 
 		if (nv != null) {
 			// bind tabla formacion
-			formacionTable.itemsProperty().bindBidirectional(nv.formacionProperty());
+			formacionTable.itemsProperty().bindBidirectional(nv.formacion);
 		}
 	}
     

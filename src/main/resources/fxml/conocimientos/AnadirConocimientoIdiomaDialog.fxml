@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="view" hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="116.0" prefWidth="500.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
     <ColumnConstraints hgrow="SOMETIMES" />
@@ -18,7 +18,7 @@
   <rowConstraints>
     <RowConstraints vgrow="NEVER" />
     <RowConstraints vgrow="NEVER" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
   </rowConstraints>
    <children>
@@ -27,7 +27,7 @@
       <HBox spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <ComboBox fx:id="nivelCombo" prefWidth="150.0" />
-            <Button fx:id="nivelResetButton" mnemonicParsing="false" text="X" />
+            <Button fx:id="nivelResetButton" mnemonicParsing="false" onAction="#onNivelResetAction" text="X" />
          </children>
       </HBox>
       <Label text="Certificación " GridPane.rowIndex="2" />
