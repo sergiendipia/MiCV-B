@@ -73,6 +73,8 @@ public class ConocimientosController implements Initializable{
 
 		denominacionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 		nivelColumn.setCellFactory(ComboBoxTableCell.forTableColumn(Nivel.values()));
+		
+		conocimientosTable.itemsProperty().bind(habilidades);
 	}
     
     
@@ -126,10 +128,4 @@ public class ConocimientosController implements Initializable{
 		this.habilidadesProperty().set(habilidades);
 	}
 	
-
-	
-
-    
-    
-
 }

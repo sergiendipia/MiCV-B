@@ -21,9 +21,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.HBox;
 import javafx.util.converter.LocalDateStringConverter;
@@ -76,6 +79,8 @@ public class ExperienciaController implements Initializable{
 		hastaColumn.setCellFactory(TextFieldTableCell.forTableColumn(new LocalDateStringConverter()));
 		denominacionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 		empleadorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+		
+		experienciaTable.itemsProperty().bind(experiencias);
 	}
 
     @FXML
@@ -91,7 +96,19 @@ public class ExperienciaController implements Initializable{
 
     @FXML
     void onEliminarAction(ActionEvent event) {
-    	experienciaTable.getItems().removeAll(experienciaTable.getSelectionModel().getSelectedItem());
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Eliminar");
+    	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
+    	//alert.setContentText();
+
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    	    // ... user chose OK
+    		experienciaTable.getItems().removeAll(experienciaTable.getSelectionModel().getSelectedItem());
+    	} else {
+    	    // ... user chose CANCEL or closed the dialog
+    	}
+    	
     }
 
 	public final ListProperty<Experiencia> experienciasProperty() {
@@ -110,6 +127,4 @@ public class ExperienciaController implements Initializable{
 	
 
 
-	
-    
 }

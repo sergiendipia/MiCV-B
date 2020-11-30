@@ -12,7 +12,7 @@
       <TableView fx:id="ExperienciaTable" prefHeight="400.0" prefWidth="513.0" HBox.hgrow="ALWAYS">
         <columns>
           <TableColumn fx:id="desdeColumn" prefWidth="94.0" text="Desde" />
-          <TableColumn fx:id="hastaColumn" prefWidth="56.0" text="Hasta" />
+          <TableColumn fx:id="hastaColumn" prefWidth="94.0" text="Hasta" />
             <TableColumn fx:id="denominacionColumn" prefWidth="107.0" text="Denominación" />
             <TableColumn fx:id="empleadorColumn" prefWidth="97.0" text="Empleador" />
         </columns>

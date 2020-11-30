@@ -36,45 +36,44 @@ import javafx.scene.layout.HBox;
 import javafx.util.converter.LocalDateStringConverter;
 import javafx.util.converter.LocalDateTimeStringConverter;
 
-public class FormacionController implements Initializable{
-	//model
+public class FormacionController implements Initializable {
+	// model
 	private ListProperty<Titulo> formacion = new SimpleListProperty<Titulo>(FXCollections.observableArrayList());
-	
+
 	@FXML
-    private HBox view;
+	private HBox view;
 
-    @FXML
-    private TableView<Titulo> formacionTable;
+	@FXML
+	private TableView<Titulo> formacionTable;
 
-    @FXML
-    private TableColumn<Titulo, LocalDate> desdeColumn;
+	@FXML
+	private TableColumn<Titulo, LocalDate> desdeColumn;
 
-    @FXML
-    private TableColumn<Titulo, LocalDate> hastaColumn;
+	@FXML
+	private TableColumn<Titulo, LocalDate> hastaColumn;
 
-    @FXML
-    private TableColumn<Titulo, String> denominacionColumn;
+	@FXML
+	private TableColumn<Titulo, String> denominacionColumn;
 
-    @FXML
-    private TableColumn<Titulo, String> organizadorColumn;
+	@FXML
+	private TableColumn<Titulo, String> organizadorColumn;
 
-    @FXML
-    private Button anadirButton;
+	@FXML
+	private Button anadirButton;
 
-    @FXML
-    private Button eliminarButton;
+	@FXML
+	private Button eliminarButton;
 
-    
 	public FormacionController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/formacion/FormacionView.fxml"));
 		loader.setController(this);
 		loader.load();
 	}
-	
+
 	public HBox getView() {
 		return view;
 	}
-	
+
 	public void initialize(URL location, ResourceBundle resources) {
 		desdeColumn.setCellValueFactory(v -> v.getValue().desdeProperty());
 		hastaColumn.setCellValueFactory(v -> v.getValue().hastaProperty());
@@ -86,65 +85,69 @@ public class FormacionController implements Initializable{
 		denominacionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 		organizadorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-		formacion.addListener((o, ov, nv) -> onFormacionChanged(o, ov, nv));
+		formacionTable.itemsProperty().bind(formacion);
+//		formacion.addListener((o, ov, nv) -> onFormacionChanged(o, ov, nv));
 
 	}
-/*
- * Existe la opción de crear una clase intermedia (formacion), y con ella podríamos cargar una lista con los objetos titulo.
- * En base al diagrama UML, no es necesaria, por lo que podemos tener una lista de titulos directamente en el Controlador.
- * Pero, da error, a la hora de realizar los bindeos.
- * Sin ella, no es posible que se muestren registros en la tabla
- */
-	private void onFormacionChanged(ObservableValue<? extends FormacionController> o, FormacionController ov, FormacionController nv) {
 
-		System.out.println("ov=" + ov + "/nv=" + nv);
+//	private void onFormacionChanged(ObservableValue<? extends ObservableList<Titulo>> o, ObservableList<Titulo> ov,
+//			ObservableList<Titulo> nv) {
+//		System.out.println("ov=" + ov + "/nv=" + nv);
+//
+//		if (ov != null) {
+//			// unbind tabla formacion
+//			formacionTable.setItems(null);
+//		}
+//
+//		if (nv != null) {
+//			// bind tabla formacion
+//			formacionTable.setItems(nv);
+//		}
+//
+//	}
 
-		if (ov != null) {
-			// unbind tabla formacion
-			formacionTable.itemsProperty().unbindBidirectional(ov.formacion);
-		}
+	/*
+	 * Existe la opción de crear una clase intermedia (formacion), y con ella
+	 * podríamos cargar una lista con los objetos titulo. En base al diagrama UML,
+	 * no es necesaria, por lo que podemos tener una lista de titulos directamente
+	 * en el Controlador. Pero, da error, a la hora de realizar los bindeos. Sin
+	 * ella, no es posible que se muestren registros en la tabla
+	 */
 
-		if (nv != null) {
-			// bind tabla formacion
-			formacionTable.itemsProperty().bindBidirectional(nv.formacion);
-		}
-	}
-    
-    @FXML
-    void onAnadirAction(ActionEvent event) {
+	@FXML
+	void onAnadirAction(ActionEvent event) {
 		AnadirFormacionDialog dialog = new AnadirFormacionDialog();
 		Optional<Titulo> result = dialog.showAndWait();
 		if (result.isPresent()) {
 			System.out.println(result.get());
 			getFormacion().add(result.get());
 		}
-    }
+	}
 
-    @FXML
-    void onEliminarAction(ActionEvent event) {
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setTitle("Eliminar");
-    	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
-    	alert.setContentText("Are you ok with this?");
+	@FXML
+	void onEliminarAction(ActionEvent event) {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Eliminar");
+		alert.setHeaderText("¿Seguro que deseas borrar este registro?");
+		alert.setContentText("Are you ok with this?");
 
-    	Optional<ButtonType> result = alert.showAndWait();
-    	if (result.get() == ButtonType.OK){
-    	    // ... user chose OK
-    	} else {
-    	    // ... user chose CANCEL or closed the dialog
-    	}
-    	formacionTable.getItems().removeAll(formacionTable.getSelectionModel().getSelectedItem());
-    }
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK) {
+			// ... user chose OK
+			formacionTable.getItems().removeAll(formacionTable.getSelectionModel().getSelectedItem());
+		} else {
+			// ... user chose CANCEL or closed the dialog
+		}
+		
+	}
 
 	public final ListProperty<Titulo> formacionProperty() {
 		return this.formacion;
 	}
-	
 
 	public final ObservableList<Titulo> getFormacion() {
 		return this.formacionProperty().get();
 	}
-	
 
 	public final void setFormacion(final ObservableList<Titulo> formacion) {
 		this.formacionProperty().set(formacion);
