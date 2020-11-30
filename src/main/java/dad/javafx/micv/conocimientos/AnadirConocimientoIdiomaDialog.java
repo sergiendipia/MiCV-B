@@ -18,7 +18,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class AnadirConocimientoIdiomaDialog extends Dialog<Conocimiento> implements Initializable {
 
@@ -42,7 +44,7 @@ public class AnadirConocimientoIdiomaDialog extends Dialog<Conocimiento> impleme
 	public AnadirConocimientoIdiomaDialog() {
 		super();
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/cononocimientos/AnadirConocimientoDialog.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/cononocimientos/AnadirConocimientoIdiomaDialog.fxml"));
 			loader.setController(this);
 			loader.load();
 		} catch (IOException e) {
@@ -64,6 +66,9 @@ public class AnadirConocimientoIdiomaDialog extends Dialog<Conocimiento> impleme
 		
 		setResultConverter(d -> onAnadirConocimiento(d));
 		
+		//Cargar icono
+		Stage stage = (Stage) getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
 	}
 	
     private Conocimiento onAnadirConocimiento(ButtonType buttonType) {

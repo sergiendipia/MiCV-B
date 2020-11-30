@@ -18,7 +18,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class AnadirConocimientoDialog extends Dialog<Conocimiento> implements Initializable{
 
@@ -58,7 +60,9 @@ public class AnadirConocimientoDialog extends Dialog<Conocimiento> implements In
 		getDialogPane().getButtonTypes().addAll(new ButtonType("Crear", ButtonData.OK_DONE), ButtonType.CANCEL);
 		
 		setResultConverter(d -> onAnadirConocimiento(d));
-		
+		//Cargar icono
+		Stage stage = (Stage) getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
 	}
 	
     private Conocimiento onAnadirConocimiento(ButtonType buttonType) {

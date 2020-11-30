@@ -10,11 +10,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class AnadirTelefonoDialog extends Dialog<Telefono> implements Initializable {
 	
@@ -52,6 +54,9 @@ public class AnadirTelefonoDialog extends Dialog<Telefono> implements Initializa
 		
 		setResultConverter(d -> onAnadirTelefono(d));
 		
+		//Cargar icono
+		Stage stage = (Stage) getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
 	}
 
     private Telefono onAnadirTelefono(ButtonType buttonType) {

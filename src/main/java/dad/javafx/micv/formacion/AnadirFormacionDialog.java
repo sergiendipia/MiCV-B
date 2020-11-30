@@ -15,7 +15,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
 
 public class AnadirFormacionDialog extends Dialog<Titulo> implements Initializable{
     @FXML
@@ -54,6 +56,9 @@ public class AnadirFormacionDialog extends Dialog<Titulo> implements Initializab
 		
 		setResultConverter(d -> onAnadirTitulo(d));
 		
+		//Cargar icono
+		Stage stage = (Stage) getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
 	}
 	
     private Titulo onAnadirTitulo(ButtonType buttonType) {
