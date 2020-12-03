@@ -17,8 +17,8 @@
                <children>
                   <TableView fx:id="telefonosTable" editable="true" minHeight="70.0" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn fx:id="numeroColumn" prefWidth="75.0" text="Número" />
-                      <TableColumn fx:id="tipoColumn" prefWidth="75.0" text="Tipo" />
+                      <TableColumn fx:id="numeroColumn" prefWidth="94.0" text="Número" />
+                      <TableColumn fx:id="tipoColumn" prefWidth="103.0" text="Tipo" />
                     </columns>
                   </TableView>
                   <VBox spacing="5.0">
@@ -27,14 +27,14 @@
                         <Button fx:id="eliminarTelefonoButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onEliminarTelefonoAction" text="Eliminar" />
                      </children>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
                      </padding>
                   </VBox>
                </children>
             </HBox>
          </content>
          <padding>
-            <Insets bottom="5.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" />
          </padding>
       </TitledPane>
       <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Direcciones de correo">
@@ -43,7 +43,7 @@
                <children>
                   <TableView fx:id="emailTable" editable="true" minHeight="70.0" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn fx:id="emailColumn" prefWidth="75.0" text="E-mail" />
+                      <TableColumn fx:id="emailColumn" prefWidth="257.0" text="E-mail" />
                     </columns>
                   </TableView>
                   <VBox spacing="5.0">
@@ -52,14 +52,14 @@
                         <Button fx:id="eliminarEmailButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onEliminarEmailAction" text="Eliminar" />
                      </children>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
                      </padding>
                   </VBox>
                </children>
             </HBox>
          </content>
          <padding>
-            <Insets bottom="5.0" top="5.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </TitledPane>
       <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Webs">
@@ -80,18 +80,18 @@
                         <Insets />
                      </HBox.margin>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
                      </padding>
                   </VBox>
                </children>
             </HBox>
          </content>
          <padding>
-            <Insets top="5.0" />
+            <Insets left="5.0" right="5.0" top="5.0" />
          </padding>
       </TitledPane>
    </items>
    <padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      <Insets bottom="5.0" top="5.0" />
    </padding>
 </SplitPane>
