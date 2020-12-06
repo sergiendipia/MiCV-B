@@ -10,6 +10,7 @@ import dad.javafx.micv.contacto.model.Email;
 import dad.javafx.micv.contacto.model.Telefono;
 import dad.javafx.micv.contacto.model.TipoTelefono;
 import dad.javafx.micv.contacto.model.Web;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -27,6 +28,8 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class ContactoController implements Initializable {
 
@@ -100,6 +103,8 @@ public class ContactoController implements Initializable {
 		urlColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
 		contacto.addListener((o, ov, nv) -> onContactoChanged(o, ov, nv));
+		
+		
 
 	}
 
@@ -125,6 +130,10 @@ public class ContactoController implements Initializable {
 			// bind tabla web
 			webTable.itemsProperty().bindBidirectional(nv.websProperty());
 		}
+		
+		eliminarEmailButton.disableProperty().bind(Bindings.isEmpty(getContacto().emailsProperty()));
+		eliminarTelefonoButton.disableProperty().bind(Bindings.isEmpty(getContacto().telefonosProperty()));
+		eliminarWebButton.disableProperty().bind(Bindings.isEmpty(getContacto().websProperty()));
 	}
 
 	public SplitPane getView() {
@@ -137,6 +146,8 @@ public class ContactoController implements Initializable {
 		dialog.setTitle("Nuevo e-mail");
 		dialog.setHeaderText("Crear una nueva dirección de correo.");
 		dialog.setContentText("E-mail:");
+		Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
 		Optional<String> result = dialog.showAndWait();
 		if (result.isPresent()) {
 			Email anadido = new Email();
@@ -161,6 +172,8 @@ public class ContactoController implements Initializable {
 		dialog.setTitle("Nueva Web");
 		dialog.setHeaderText("Crear una nueva dirección web.");
 		dialog.setContentText("URL:");
+		Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
 		Optional<String> result = dialog.showAndWait();
 		if (result.isPresent()) {
 			Web anadida = new Web();

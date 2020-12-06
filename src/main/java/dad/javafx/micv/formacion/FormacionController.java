@@ -11,6 +11,7 @@ import dad.javafx.micv.contacto.model.Contacto;
 import dad.javafx.micv.contacto.model.Telefono;
 import dad.javafx.micv.contacto.model.TipoTelefono;
 import dad.javafx.micv.formacion.model.Titulo;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -86,6 +87,8 @@ public class FormacionController implements Initializable {
 		organizadorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
 		formacionTable.itemsProperty().bind(formacion);
+		
+		eliminarButton.disableProperty().bind(Bindings.isEmpty(formacion));
 //		formacion.addListener((o, ov, nv) -> onFormacionChanged(o, ov, nv));
 
 	}

@@ -11,6 +11,7 @@ import dad.javafx.micv.contacto.model.Telefono;
 import dad.javafx.micv.experiencia.model.Experiencia;
 import dad.javafx.micv.formacion.AnadirFormacionDialog;
 import dad.javafx.micv.formacion.model.Titulo;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -81,6 +82,8 @@ public class ExperienciaController implements Initializable{
 		empleadorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 		
 		experienciaTable.itemsProperty().bind(experiencias);
+		
+		eliminarButton.disableProperty().bind(Bindings.isEmpty(experiencias));
 	}
 
     @FXML

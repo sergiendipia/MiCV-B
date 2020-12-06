@@ -12,6 +12,7 @@ import dad.javafx.micv.contacto.model.Contacto;
 import dad.javafx.micv.contacto.model.Telefono;
 import dad.javafx.micv.contacto.model.TipoTelefono;
 import dad.javafx.micv.formacion.model.Titulo;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -75,6 +76,8 @@ public class ConocimientosController implements Initializable{
 		nivelColumn.setCellFactory(ComboBoxTableCell.forTableColumn(Nivel.values()));
 		
 		conocimientosTable.itemsProperty().bind(habilidades);
+		
+		eliminarButton.disableProperty().bind(Bindings.isEmpty(habilidades));
 	}
     
     

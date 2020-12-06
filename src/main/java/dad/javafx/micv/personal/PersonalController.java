@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 
 import dad.javafx.micv.personal.model.Nacionalidad;
 import dad.javafx.micv.personal.model.Personal;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -161,6 +162,8 @@ public class PersonalController implements Initializable {
 			
 //			paisCombo.getSelectionModel().selectFirst();
 		}
+		
+		quitarNacionalidadButton.disableProperty().bind(Bindings.isEmpty(getPersonal().getNacionalidades()));
 		
 	}
 

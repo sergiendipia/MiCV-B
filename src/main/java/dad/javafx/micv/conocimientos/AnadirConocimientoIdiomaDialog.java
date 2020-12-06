@@ -44,7 +44,7 @@ public class AnadirConocimientoIdiomaDialog extends Dialog<Conocimiento> impleme
 	public AnadirConocimientoIdiomaDialog() {
 		super();
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/cononocimientos/AnadirConocimientoIdiomaDialog.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/conocimientos/AnadirConocimientoIdiomaDialog.fxml"));
 			loader.setController(this);
 			loader.load();
 		} catch (IOException e) {
