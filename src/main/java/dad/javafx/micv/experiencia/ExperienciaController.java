@@ -29,7 +29,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
 
 public class ExperienciaController implements Initializable{
@@ -84,6 +86,7 @@ public class ExperienciaController implements Initializable{
 		experienciaTable.itemsProperty().bind(experiencias);
 		
 		eliminarButton.disableProperty().bind(Bindings.isEmpty(experiencias));
+		eliminarButton.disableProperty().bind(Bindings.isEmpty(experienciaTable.getSelectionModel().getSelectedItems()));
 	}
 
     @FXML
@@ -103,7 +106,8 @@ public class ExperienciaController implements Initializable{
     	alert.setTitle("Eliminar");
     	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
     	//alert.setContentText();
-
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){
     	    // ... user chose OK

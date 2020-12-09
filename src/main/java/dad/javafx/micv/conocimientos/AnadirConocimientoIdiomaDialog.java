@@ -59,7 +59,6 @@ public class AnadirConocimientoIdiomaDialog extends Dialog<Conocimiento> impleme
 		nivelCombo.getItems().addAll(Nivel.values());
 		
 		setTitle("Nuevo conocimiento");
-		
 		getDialogPane().setContent(view);
 		
 		getDialogPane().getButtonTypes().addAll(new ButtonType("Crear", ButtonData.OK_DONE), ButtonType.CANCEL);

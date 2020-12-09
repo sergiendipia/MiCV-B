@@ -164,6 +164,7 @@ public class PersonalController implements Initializable {
 		}
 		
 		quitarNacionalidadButton.disableProperty().bind(Bindings.isEmpty(getPersonal().getNacionalidades()));
+		quitarNacionalidadButton.disableProperty().bind(Bindings.isEmpty(nacionalidadesList.getSelectionModel().getSelectedItems()));
 		
 	}
 

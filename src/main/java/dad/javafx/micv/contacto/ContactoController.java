@@ -104,7 +104,8 @@ public class ContactoController implements Initializable {
 
 		contacto.addListener((o, ov, nv) -> onContactoChanged(o, ov, nv));
 		
-		
+
+
 
 	}
 
@@ -134,6 +135,9 @@ public class ContactoController implements Initializable {
 		eliminarEmailButton.disableProperty().bind(Bindings.isEmpty(getContacto().emailsProperty()));
 		eliminarTelefonoButton.disableProperty().bind(Bindings.isEmpty(getContacto().telefonosProperty()));
 		eliminarWebButton.disableProperty().bind(Bindings.isEmpty(getContacto().websProperty()));
+		eliminarEmailButton.disableProperty().bind(Bindings.isEmpty(emailTable.getSelectionModel().getSelectedItems()));
+		eliminarTelefonoButton.disableProperty().bind(Bindings.isEmpty(telefonosTable.getSelectionModel().getSelectedItems()));
+		eliminarWebButton.disableProperty().bind(Bindings.isEmpty(webTable.getSelectionModel().getSelectedItems()));
 	}
 
 	public SplitPane getView() {
@@ -189,7 +193,8 @@ public class ContactoController implements Initializable {
     	alert.setTitle("Eliminar");
     	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
     	alert.setContentText("Email: " + emailTable.getSelectionModel().getSelectedItem().getDireccion());
-
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){
     	    // ... user chose OK
@@ -207,7 +212,8 @@ public class ContactoController implements Initializable {
     	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
     	alert.setContentText("Teléfono: " + telefonosTable.getSelectionModel().getSelectedItem().getNumero() +
     			"\nTipo : " + telefonosTable.getSelectionModel().getSelectedItem().getTipo());
-
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){
     	    // ... user chose OK
@@ -224,7 +230,8 @@ public class ContactoController implements Initializable {
     	alert.setTitle("Eliminar");
     	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
     	alert.setContentText("URL: " + webTable.getSelectionModel().getSelectedItem().getUrl());
-
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
     	Optional<ButtonType> result = alert.showAndWait();
     	if (result.get() == ButtonType.OK){
     	    // ... user chose OK

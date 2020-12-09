@@ -32,8 +32,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
 import javafx.util.converter.LocalDateTimeStringConverter;
 
@@ -89,6 +91,7 @@ public class FormacionController implements Initializable {
 		formacionTable.itemsProperty().bind(formacion);
 		
 		eliminarButton.disableProperty().bind(Bindings.isEmpty(formacion));
+		eliminarButton.disableProperty().bind(Bindings.isEmpty(formacionTable.getSelectionModel().getSelectedItems()));
 //		formacion.addListener((o, ov, nv) -> onFormacionChanged(o, ov, nv));
 
 	}
@@ -133,7 +136,8 @@ public class FormacionController implements Initializable {
 		alert.setTitle("Eliminar");
 		alert.setHeaderText("¿Seguro que deseas borrar este registro?");
 		alert.setContentText("Are you ok with this?");
-
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == ButtonType.OK) {
 			// ... user chose OK

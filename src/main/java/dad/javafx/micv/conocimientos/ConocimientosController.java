@@ -31,7 +31,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class ConocimientosController implements Initializable{
 	//model
@@ -78,6 +80,8 @@ public class ConocimientosController implements Initializable{
 		conocimientosTable.itemsProperty().bind(habilidades);
 		
 		eliminarButton.disableProperty().bind(Bindings.isEmpty(habilidades));
+		
+		eliminarButton.disableProperty().bind(Bindings.isEmpty(conocimientosTable.getSelectionModel().getSelectedItems()));
 	}
     
     
@@ -103,9 +107,12 @@ public class ConocimientosController implements Initializable{
 
     @FXML
     void onEliminarAction(ActionEvent event) {
+    	
     	Alert alert = new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Eliminar");
     	alert.setHeaderText("¿Seguro que deseas borrar este registro?");
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image("/images/cv64x64.png"));
     	//alert.setContentText();
 
     	Optional<ButtonType> result = alert.showAndWait();
@@ -114,6 +121,7 @@ public class ConocimientosController implements Initializable{
     		conocimientosTable.getItems().removeAll(conocimientosTable.getSelectionModel().getSelectedItem());
     	} else {
     	    // ... user chose CANCEL or closed the dialog
+
     	}
     }
 
